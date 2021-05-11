@@ -5,6 +5,10 @@ const CookieAuth = require('./middlewares/CookieAuth')
 
 router.use('/stripe', CookieAuth.isAuthenticated, require('./routes/StripeRoute'))
 
+router.use('/paypal', CookieAuth.isAuthenticated, require('./routes/PaypalRoute'))
+
+router.use('/invoices', CookieAuth.isAuthenticated, require('./routes/InvoiceRoute'))
+
 router.post('/auth', async (req, res, next) => {
     const UserModel = require('./models/UserModel')
 

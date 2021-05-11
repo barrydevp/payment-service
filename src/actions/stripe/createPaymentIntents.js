@@ -1,5 +1,8 @@
 const StripeService = require('../../services/StripeService')
+const handlePaymentIntentResponse = require('./handlePaymentIntentResponse')
 
-module.exports = (paymentParams) => {
-    return StripeService.paymentIntents.create(paymentParams)
+module.exports = async (paymentParams) => {
+    const intent = await StripeService.paymentIntents.create(paymentParams)
+
+    return handlePaymentIntentResponse(intent)
 }

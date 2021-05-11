@@ -12,8 +12,11 @@ const CreatePaymentIntentSchema = Joi.object().keys({
 
 exports.createPaymentIntent = createValidatorMiddleware(CreatePaymentIntentSchema)
 
-const CheckOutSchema = CreatePaymentIntentSchema.keys({
-    payment_method: Joi.string()
+const CheckOutSchema = Joi.object().keys({
+    payment_method_id: Joi.string()
+        .required(),
+
+    invoice_id: Joi.string()
         .required(),
 })
 
@@ -21,6 +24,9 @@ exports.checkOut = createValidatorMiddleware(CheckOutSchema)
 
 const ConfirmCheckOutSchema = Joi.object().keys({
     payment_intent_id: Joi.string()
+        .required(),
+
+    invoice_id: Joi.string()
         .required(),
 })
 

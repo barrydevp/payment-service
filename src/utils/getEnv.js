@@ -40,7 +40,15 @@ const config = {
         development: {
             secretKey: process.env.STRIPE_SECRET_KEY || 'sk_test_51ImaPaDu0dm6Zw2wXck4AbTDkKrhKepRoRkoKQjZ7MZvPeSiofbf5aWMgUr0rMekjV9ZSW4bsni3laCsAAGRJYgg00RepGYgmC',
             publicKey: process.env.STRIPE_PUBLISHABLE_KEY || 'pk_test_51ImaPaDu0dm6Zw2wAfpWVarsHlqIzMgwEgZNUF2jNn88qWo6PvfET5TN4k6CUDCdGWLTqOJWpbJSiI8wHzmlU3Ur0024a3Py0c',
-            publicKey: process.env.STRIPE_API_VERSION || '2020-08-27',
+            apiVersion: process.env.STRIPE_API_VERSION || '2020-08-27',
+        },
+    },
+
+    paypal: {
+        $filter: 'env',
+        development: {
+            clientId: process.env.PAYPAL_CLIENT_ID || 'AZE2PpEnEIvywIJZz-ZLa-CWCJtoxK2aCh9acfDNWZrIB-gArv-m2GG5Vnsclc1ehWBKPpY8mbT7Px4w',
+            clientSecret: process.env.PAYPAL_CLIENT_SECRET || 'EOvmnvH9-ee4rtoFS2sBaCtyk071hEEBNKTodaYJI2LTYvDNTvJnsEi3CbIO-j4dSnxcXg6sg0SlxYsS' ,
         },
     },
 }
